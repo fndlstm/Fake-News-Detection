@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fake News Detection System</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Pacifico"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Arimo"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Hind:300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <script
+      type="text/javascript"
+      src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=EthBOrEJfRSzit-Vgu8f7VocA7xphtzx9IRv3nWZH2HElJSolXv6fkPHNr_vtjbT0_WKD9tyQzaW6XhOr8lbp-a5RYmg7TBB8fip0OClzmDy23SlWjfRet-loq8940niVTD44xZkGDGy103Sfpic-z4qYJ21s_9ffcgMnTv3nmlV4u9wUGDCS9F4p8AccjrHjycFVHrpahT8-IzYwKkvrX-elDCyOqf2ixWsZxXHLlRAFDUsX9txlC8vsvnk3a31QnO3AYXHFMrs0InphULDgDeWGkC0uUs4rY78rG3gtamYq1i6Ty104eQuLXVj1M-_E9X_ryncFy_87YgYdSgfGHvfyWGg4B9Sjj5aL3wZRosBXlFKfWK0EB78FiAzEevl45kAKGXclZCXLMbSjlFtZc5K9TrImJTREOsSD5CnWRVZGjvbHNq9wvlS1NIHYnBNal8mkV0Q6C_73ol9CBnRXD8-AxzSC3kTwdDh7KQDPlnYx3HNu5FIE1U5vJ68WXO6CDjz62A9KSPCJ3jQ_hsI8osuRibqr8dyueU7aHKc_LmQSopCUAH0lm8AfmWIj0-HmxZHd9NkD8ylp_itu-9gdKjwjYklZj3TUPmpUeomeW9cEfafUIq6CPSmw9bIq17TKjREHVdUPK0VZ7fMNM7MCjZzgD9FpBU7fNYYxXBx6vGxt-aG4ObwYJtUAD6o4g8xBlQ-ClOd8T2ElbCEKCX-t5aXLcHwMX5kaK_1F_WYS69_cPYkn9b5mURDEGK1ClEXHTnjaXuQ-PNEVdhkeEaP2DSom3VtbC6mR3fnGoxyf1O6ZTCJo_V1HILQ6lVN_vYdzUbaTnA0RBb-09uy9HmpoCoaI0NvtiI0P3ONaGUVZ1HwhN2fQYkajYKBm5S9KC3nRlILod6JSEct1i7-GrVH48SjEQkeuy7VkePZ6DDkINW2j7P1Amlft1x92GZl7zAQZ_QIHrOYpWep6egbLrPN8vto7EDJUjt1rGyJ5-GRivW1U3bR6EYqLQhlM1yrZCTmv-v5H6Z37FHuu7i13RQdkt9cpROxRSaHG4akZ1c_ZcTmIVPWWocOG2EzxBk80e7njnJyKP7kVN-pvfjy8DKafjW77I39FDdTTBA-xFM-22zSpaPmlIKRU3WvnyxfWzewYHWymjn8MC4flzw_sIltCp7iJTB9PqN3ENuYlsVhPE3vbuWvRiXF2g0E00O6h_biF2vtBKlPsHLjLhptfoziBA"
+      nonce="b7740ae4d4499aaf199b78fd647bd5ed"
+      charset="UTF-8"
+    ></script>
+    <link
+      rel="stylesheet"
+      crossorigin="anonymous"
+      href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9tYWlsLWF0dGFjaG1lbnQuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2F0dGFjaG1lbnQvdS8wLz91aT0yJmlrPTk2NjFkN2JkZWQmYXR0aWQ9MC4yJnBlcm1tc2dpZD1tc2ctZjoxNzA1MjM1NjAxOTU0Njg0ODQ1JnRoPTE3YWEzNmJlYzhkYmJmYWQmdmlldz1hdHQmZGlzcD1zYWZlJnJlYWxhdHRpZD1mX2tyMzB4a29iMiZzYWRkYmF0PUFOR2pkSl9NbFhEaEdyRWkzUnFqaEswVUhXMFNMSWtWVUlrNmdYdWZWRWc5dVBVSUQxaVlCVU9ZM1RmUGFrVXE3NmYzbkdMZmFXeGVTV2x4X283UE1xR3M0MGpGN2J6UXRibExFRk9kdXNyZ3ZmOEtReHNpWWZDLWZqelh5OVF3V21WU3NVS3duX2NEcGUxM0h3UDdmVXNtRml3TjAtbEQwMG1zYmxhakgyN2FPWmFOOWpYY2Y2bVoyM3BlcE1KM2pEd2lrNHFaQmtDVXIxYVZEQ1FLZi12SnRPREhleWI3UVdHZ3RlQW9DZzI2ZHlLbUpGLVUzaWxTdU1LS3YxS2ZYZm9LdDNFbS1kMHhkWGZKcGFDR29FcHpERDJ3OHpRQ3lMWldvMmZibThCbGpNXzkzUnlYMkhtM1FJbmZONDRHWDFoUV80MFpOMEhaeVI3WkZseWs5ZjloS01hM2xPOGpCM0VYc3VsU0dMc3V5NVBRNXltSmlRNDQ1Yl9FSmQ3OGNkN2ppMzNUNEp0VWluaXFvdUJCMmFXR052cWJpTGJOV2FKbnJMUXlERHh1Q21SVGpOcnM4QmhlczlRVUNqbjNlM2FiYk1ZOWR6QUhtZGVkcW16bUtoeS15M3ZaR2FvSW01UndNMEY2a1YyZUp6WEhSZE1USld4UVFCN0Mzekw4Qm5xNzcxcExWdkNBcWdha0I3YmJCYzk2RVZzOWIwSGJsNTJDUjM2dFpLQU9yc2tuWldiTzlyX1ExSjVabWhsckVxQnVOVXRMY2I3WXJkYXBobjRSRnI4TDdoTHNNQWR1M3NvTmVQZVJuTl96S0ZXdmZ5YktablhkUDZ6dTNDZ3NicEJ3TE1VdTRHaGtOR3k2Y0ZyS2U1UWQ3S2tiUktjSHBQLTRodnFCaDdqM2ZjTWY2ZmpYTlQ1V2ZPUXRWdms"
+    />
+    <style>
+      html,
+      body {
+        height: 100%;
+        overflow-x: hidden;
+      }
+      body{
+        text-align: center;
+        background-size: cover;
+        background-color: rgb(184, 184, 184, 0.5);
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Nav bar code -->
+
+    <nav
+      class="navbar navbar-expand-lg navbar-light"
+      style="background-color: #e3f2fd"
+    >
+      <a class="navbar-brand" href="#">Fake News Detection System</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div
+        class="collapse navbar-collapse justify-content-between"
+        id="navbarSupportedContent"
+      >
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/sourceauth">Source Authentication</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/latestnews">Latest News</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/factcheck">Fact-Check Search</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact">Contact Us</a>
+          </li>
+
+          <!-- <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Dropdown
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+              </li> -->
+        </ul>
+
+        <!-- <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form> -->
+      </div>
+    </nav>
+    <div class="container col-md-10 text-center">
+      <h4 class="bg-secondary p-1 w-4 left: 500px" style="color: white">
+        Latest News Headlines
+      </h4>
+      <br />
+    </div>
+    <div class="row mt-5">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <div class="row">
+          {% for news in news_articles %}
+          <div class="col-md-4 mb-5">
+            <div class="card" style="width: auto; padding: 15px ; background-color: rgb(184, 184, 184, 0)">
+              <img
+                src="{{ news.urlToImage }}"
+                class="card-img-top"
+                alt="..."
+                onerror="this.src"
+                ="static/previewunavailable.jpg"
+              />
+              <div class="card-body">
+                <h5 class="card-title" style="color: black">
+                  {{ news.title }}
+                </h5>
+                <p class="card-text" style="color: black">
+                  {{ news.description }}
+                </p>
+                <a href="{{ news.url }}" class="btn btn-secondary">Read More</a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- 
+    <script>
+        const links=document.getElementsByTagName('a');
+        Array.prototype.forEach.call(links,(link) => {
+          link.addEventListener('click',(e)=>{
+            e.preventDefault();
+          })
+        });
+    </script>  -->
+  </body>
+</html>

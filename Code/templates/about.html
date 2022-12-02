@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Fake News Detection System</title>
+        <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=GirM56ls3iWga6OaJ9ofKEHbhY_IjgA4u96A5K1Tash6QpGz2T7NCaHR90H0Gl4HSW_XuY62hrmHhHazPYNmPpWVignsfBlICzC129cz0cm1315oVM5LSsotUj59HklvvKcCRDjgGvzwKZAupe_hpyGqFpoJtpCLZ8e_2v1f8yC5re5UfIoTYfIB8kn5kg7ZlA6zW1obWLMibB8eBxG4zHY7avf_4U6Iasy-pCVDZQ8ohxq-RHXYPhSjyGb1JAViaPTML-GkF8pHcpK1vmHPYRpWWqesFKlRu8R0zprtGdRyKqDxhR6XkM5icy_3f65z1Vp3RZo6LC3rtaNPmagNhJxnTs6DmZqUjP9S8y2ZrKleCQbyNe3q01axjlvLWT4tftqrwRUlQ6DxLSmIN_62_Lu3dHhjxqxIIumzqZ_pMoquxENu0AbwgxklVpE-430NUw5qwUxJKzpjp-MvxxujkNid_ehCHdugu1aemLiV2jp7kxQ-5wuxz-1Htsxmjty1vhrEtFYy5xd96GViSvWaRiLpQOXUlXBBItnGS_VinxPeayHgJZs7GFis8ofkVZTE7BZ16LjxZRq8FwwbFE0rEezniIcCxtSXHnvsh5Txq96CpLyqaJUUCx4tYjTbhICS39wHTRSIy2q_bw2XcO5omlh9Q7OIYcdpP7JM2jSDT0C2JMi5-myzvGFOi8kOjLyEna5AxM3VjpwyjyTpQXUdHUh5vhk-rlFZLkhy35ZjtlwTvBbgcn06AtWYX2WpuoLR8a2e6hchrxZ3vp7VgOkWM-4ue9elBCwOLoFO-bfYXExeim2Tds6KCZe4eoQCHYrJSb4-dmSgWnx4MdTySwkqjlAAFbEXDAzSyNqcnArLVlvIGq1RC4NE4h4xAGQpL9hzU380rOPnT4-IvbUy9Yv2CmAuFaIilbYayVo4ENXuzmktmt7CRVRvOLA_g-KjJfTu4qY9sJT-EDiBh8k22t8UF1TTI2wE70bjOlDzksUFHxfG4lJDFJI50BkAMk4XWtRe_sV2-vErRQS7DSm83AtNLrR5BXFk6zTIIjYTXiiwh8Gg2tn-5nMtUG3yuORMkCWREwd3E10HfRSSTBcBttBeF4cSJRsTUiS38r_-Cc_I9PYR9qdxcx47l6oa6HsYTpvYED5eDi6O68xSn6GbNhWyc4fL4EfvnctbDycD7E69ZgWwMDasbXaHbJHhGBZpDuyho8OPN7ssyVO_SqBUgSDfaA" nonce="2258d2a7a6420f9c7465a0307d21cfa8" charset="UTF-8"></script>
+        <link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9tYWlsLWF0dGFjaG1lbnQuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2F0dGFjaG1lbnQvdS8wLz91aT0yJmlrPTk2NjFkN2JkZWQmYXR0aWQ9MC4xJnBlcm1tc2dpZD1tc2ctZjoxNzA1MjM1NjAxOTU0Njg0ODQ1JnRoPTE3YWEzNmJlYzhkYmJmYWQmdmlldz1hdHQmZGlzcD1zYWZlJnJlYWxhdHRpZD1mX2tyMzB4a25jMCZzYWRkYmF0PUFOR2pkSl92ZmFjV1hpQ0hpWWN0eGEycDZldU0tTXFVRWJJbFNGVzZlVVcyZ1NCdkotaXp1YVpMczI1Ui1XQTBJVGx4Vjd1YVZmMlczdm9qaXdicWIxUENDUTJJZmxyazJ6d1hTX25MWTBzNF9XZHM3VHJOcVhySXRVbUJ0ZjJLRzNZcXFMRVRaWGJ3djViYjlNUTVmbFY1WTNXbjEya1F4eWlGcDFsa1EyNWVqNHBFS0x5V2xvSnR4WVVjV3FsT1RKdlpfY0tPNjdJaDQ1eFVuY1JjeTFwbGw4ZnNzTDhSOWVONV90eVo4VnpiRjlsYVBZVjZwVU5VRGdWcW9feVpEMVdPc0tvWWlZaG10eTZNUVc2VjM3U1RPOU12Mk1kRTg5MGxMVF95Ym5BUTlaV0RMRjAwYU91TEpnNG9DdUcwVjNnd2M4TFozX05lX013czhiMTktVHNiazMzeUxmUnA3cXhyMjQ5MmI5RnljNFVaWTAtUkJSekwzWjJRQk5TLVlMQ1JlVmUxelNtREFnSmNVSm9kRnBXRTNrWG12dnZXb24zR1FibmR6a0NGc0JQUHdMUEhhWFZQQjdwTXlSbjlibzlaRjhoSTRfM1JBQzc3TXJIdHRiSW9ULTN2eXhOQUNubmpCcjlxZWdXcUlVbVRFX3g4ckFLLXRBQVh5dnRoU3ptTnZvOVRzQWJHUXJ3UU4tRWdya1Rxc0NEeXBIQ1Fhd04zVEFET1BTOGdzS1lSd2c1QUtZaDVXWFRHTjVmeEJmYmdINzJFaFk2NndERU9sU0szUl9FdVpWV01RMnJycE1yaXpkSzRlbnp2MXQwM3FoU0kxVEZOaU1mbU80bllQVjFOOFRvb1NmUjc3OXhxNzYxSGpyQnYtbDA4Vml0NGpzWF8wRDFka1Z6V2FjajRQT09QOHo3V09naV9DSTQ"/>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+          
+        <style>
+          html,body {
+            height: 100%;
+          }
+
+          body {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            background-size: cover;
+			      background-color: rgb(184, 184, 184, 0.5);
+          }
+
+          html {
+            box-sizing: border-box;
+          }
+
+          .about-section {
+            padding: 40px;
+          }
+
+          .text-style {
+            color: black;
+            opacity: 1.0;
+          }
+        </style>
+
+    </head>
+
+    <body>
+      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;" >
+        <a class="navbar-brand" href="#">Fake News Detection System</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/sourceauth">Source Authentication</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/latestnews">Latest News</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/factcheck">Fact-Check Search</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact">Contact Us</a>
+            </li>
+      
+            <!-- <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#">Disabled</a>
+            </li> -->
+          </ul>
+          
+          
+            
+              
+      
+    
+          
+          <!-- <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form> -->
+        </div>
+      </nav>
+
+      <div class="about-section">
+        <h1 class="text-style">About the System</h1>
+        <p class="text-style">Users who are interested in the authenticity of the news they are reading, and want to stay up to date with the latest legitimate news, the Fake News Detection Software is an Internet-based web application that will process the news article text entered into it, and use Deep Learning to help the user recognize the news entered to be fake or real. Unlike the current method of recognizing whether the news being read by the user is real or not, where users would depend on more traditional methods of recognition, or simply believing what they read online to be true, our product will help users eliminate the tedious task of further research related to the news they read, wasting precious time and putting in more effort than necessary into something that can be done for them through our Fake News Detection System.</p>
+        <h2 class="text-style">Our Services</h2>
+        <p class="text-style">Aside from the main feature of news validity prediction, our system also provides the user with features such as:
+          <dl class="text-style">
+            <dt>Source Authentication</dt>
+              <dd>Check authenticity of a news source from our collection of unreliable news sources collected from all over the internet</dd>
+            <dt>Latest News</dt>
+              <dd>View news from trusted online news providers.</dd>
+            <dt>Fact-Check Search</dt>
+              <dd>Fact-Check your query from other fact-checking sources that provide this facility.</dd>
+          </dl>
+        </p>
+      </div>
+
+    </body>
+</html>
